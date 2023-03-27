@@ -1,0 +1,15 @@
+Greeting : Welcome to Dubrovnik
+# description: damage, health
+enemy: 5, 100
+
+# description: points for killing the enemy
+point: 2
+
+# description: name, damage, price
+weapon: shovel, 15, 80
+
+# description: 
+money: 50
+
+# description: code, point
+treasure: 0, 3

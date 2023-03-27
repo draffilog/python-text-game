@@ -1,0 +1,13 @@
+Greeting : Welcome to Šibenik
+# description: damage, health
+enemy: 20, 100
+
+# description: points for killing the enemy
+point: 3
+
+# description: name, damage, price
+weapon: pistol, 15, 80
+
+# description: 
+money: 100
+healing pad: 1

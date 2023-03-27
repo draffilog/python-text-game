@@ -1,0 +1,15 @@
+Greeting : Welcome to Seville (the most dangerous land in the game!)
+# description: damage, health
+enemy: 70, 150
+
+# description: points for killing the enemy
+point: 5
+
+# description: name, damage, price
+weapon: shotgun, 35, 200
+
+# description: 
+money: 250
+
+# description: code, point
+treasure: 1, 4

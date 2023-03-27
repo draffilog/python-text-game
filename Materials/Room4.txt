@@ -1,0 +1,13 @@
+Greeting : Welcome to Girona
+# description: damage, health
+enemy: 40, 200
+
+# description: points for killing the enemy
+point: 4
+
+# description: 
+money: 100
+healing pad: 1
+
+# description: code, price
+key: 1, 350
