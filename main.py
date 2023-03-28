@@ -2,6 +2,12 @@ class Player:
     """
     This class represents the player character in the game including their name, money, health, points, and inventory.
     """
+    def __init__(self, name, money, health, points):
+        self.name = name
+        self.money = money
+        self.health = health
+        self.points = points
+        self.inventory = []
 
 class Room:
     """
