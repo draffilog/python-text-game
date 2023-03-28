@@ -8,6 +8,22 @@ class Player:
         self.health = health
         self.points = points
         self.inventory = []
+    
+    def add_item(self, item):
+        # Add an item to the player's inventory.
+        pass
+
+    def remove_item(self, item):
+        # Remove an item from the player's inventory.
+        pass
+
+    def update_health(self, health_change):
+        # Update the player's health by the specified amount (health_change).
+        pass
+
+    def update_points(self, points_change):
+        # Update the player's points by the specified amount (points_change).
+        pass
 
 class Room:
     """
