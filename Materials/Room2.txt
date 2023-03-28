@@ -1,15 +1,19 @@
-Greeting : Welcome to Seville (the most dangerous land in the game!)
-# description: damage, health
-enemy: 70, 150
+Welcome to Oldtown
+The largest port and city in the Seven Kingdoms
 
-# description: points for killing the enemy
-point: 5
+# Enemy description: name, damage, health
+John Snow,5,100
 
-# description: name, damage, price
-weapon: shotgun, 35, 200
+# Point description: points for killing the enemy
+2
 
-# description: 
-money: 250
+# Weapon description: name, damage, price
+shovel,15,80
 
-# description: code, point
-treasure: 1, 4
+# Money description: 
+50
+
+# Treasure description: code, point
+0,3
+
+

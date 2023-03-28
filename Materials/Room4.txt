@@ -1,13 +1,20 @@
-Greeting : Welcome to Girona
-# description: damage, health
-enemy: 40, 200
+Welcome to Gulltown
+The major port city of the Vale of Arryn
 
-# description: points for killing the enemy
-point: 4
+# Enemy description: name, damage, health
+Khal Drogo,40,200
 
-# description: 
-money: 100
-healing pad: 1
+# Point description: points for killing the enemy
+4
 
-# description: code, price
-key: 1, 350
+# Weapon description: name, damage, price
+pistol,15,80
+
+# Money description: 
+100
+
+# HealingPad description
+1
+
+# Key description: code, price
+1,350

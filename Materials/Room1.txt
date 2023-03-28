@@ -1,15 +1,17 @@
-Greeting : Welcome to Dubrovnik
-# description: damage, health
-enemy: 5, 100
+Welcome to King's Landing
+This town belongs to crazy queen Cersei Lannister
 
-# description: points for killing the enemy
-point: 2
+# Enemy description: name, damage, health
+Qyburn,70,150
 
-# description: name, damage, price
-weapon: shovel, 15, 80
+# Point description: points for killing the enemy
+5
 
-# description: 
-money: 50
+# Weapon description: name, damage, price
+shotgun,35,200
 
-# description: code, point
-treasure: 0, 3
+# Money description: 
+250
+
+# Treasure description: code, point
+1,4
