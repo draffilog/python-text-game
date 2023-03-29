@@ -29,6 +29,14 @@ class Room:
     """
     This class represents a room in the game, containing a description, enemy, points, items, money, and treasure.
     """
+    def __init__(self, name, description, enemy, points, items, money, treasure):
+        self.name = name
+        self.description = description
+        self.enemy = enemy
+        self.points = points
+        self.items = items
+        self.money = money
+        self.treasure = treasure
 
 class Item:
     """
