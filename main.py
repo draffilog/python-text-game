@@ -66,27 +66,33 @@ class Weapon(Item):
     """
     This class represents a weapon in the game, a subclass of Item, with a name, damage, and price.
     """
-    def __init__(self, name, damage, price):
-        super().__init__(name, price)
+    def __init__(self, name, price, damage):
+        Item.__init__(self, name, price)
         self.damage = damage
 
 class Key(Item):
     """
     This class represents a key in the game, a subclass of Item, with a code (0 or 1) and price.
     """
-    def __init__(self, code, price):
-        super().__init__(f"Key {code}", price)
+    def __init__(self, name, price, code):
+        Item.__init__(self, name, price)
         self.code = code
 
 class Armour(Item):
     """
     This class represents an armour in the game, a subclass of Item, with durability and price.
     """
+    def __init__(self, name, price, durability):
+        Item.__init__(self, name, price)
+        self.durability = durability
 
 class HealingPad(Item):
     """
     This class represents a HealingPad in the game, a subclass of Item, which can be bought to increase the player's health by 50.
     """
+    def __init__(self, name, price, health_increase):
+        Item.__init__(self, name, price)
+        self.health_increase = health_increase
 
 class Enemy:
     """
