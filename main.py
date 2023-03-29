@@ -38,6 +38,22 @@ class Room:
         self.money = money
         self.treasure = treasure
 
+    def remove_item(self, item):
+        # Remove an item from the room's items.
+        pass
+
+    def collect_money(self):
+        # Collect the money from the room.
+        pass
+
+    def collect_treasure(self, key):
+        # Collect the treasure in the room if the player has the correct key.
+        pass
+
+    def update_enemy_health(self, health_change):
+        # Update the enemy's health by the specified amount (health_change).
+        pass
+
 class Item:
     """
     This class represents a generic item in the game that can be used by the player.
