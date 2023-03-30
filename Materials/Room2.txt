@@ -1,5 +1,7 @@
+# description #
 Welcome to Oldtown
 The largest port and city in the Seven Kingdoms
+#
 
 # Enemy description: name, damage, health
 John Snow,5,100

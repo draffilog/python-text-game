@@ -1,5 +1,7 @@
+# description #
 Welcome to Gulltown
-The major port city of the Vale of Arryn
+The major port city of the Vale of Arryn.
+#
 
 # Enemy description: name, damage, health
 Khal Drogo,40,200

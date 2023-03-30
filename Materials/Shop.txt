@@ -1,4 +1,6 @@
+# description #
 Welcome to the shop
+#
 
 # Weapon description: name, damage, price
 weapon1:knife,10,50  

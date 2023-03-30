@@ -1,5 +1,7 @@
+# description #
 Welcome to Lannisport
-The largest settlement in the westerlands
+The largest settlement in the westerlands.
+#
 
 # Enemy description: name, damage, health
 Rob Stark,20,100
@@ -15,3 +17,4 @@ pistol,15,80
 
 # HealingPad description
 1
+
