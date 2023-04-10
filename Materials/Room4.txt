@@ -1,22 +1,17 @@
 # description #
 Welcome to Gulltown
-The major port city of the Vale of Arryn.
-#
+ The major port city of the Vale of Arryn
+# end #
+# enemy #
+enemy: Khal Drogo, 40, 200
+# points #
+points: 4
+# weapon #
+weapon: pistol, 15, 80
+# Money description #
+money: 100
+# HealingPad description #
+healingpad: 1
+# Key description: code, price #
+key: 1, 350
 
-# Enemy description: name, damage, health
-Khal Drogo,40,200
-
-# Point description: points for killing the enemy
-4
-
-# Weapon description: name, damage, price
-pistol,15,80
-
-# Money description: 
-100
-
-# HealingPad description
-1
-
-# Key description: code, price
-1,350

@@ -1,19 +1,14 @@
 # description #
-Welcome to King's Landing
-This town belongs to crazy queen Cersei Lannister
-#
-
+Welcome to King's Landing.
+ This town belongs to crazy queen Cersei Lannister
+# end #
 # Enemy description: name, damage, health
-Qyburn,70,150
-
+enemy: Qyburn, 70, 150
 # Point description: points for killing the enemy
-5
-
+points: 5
 # Weapon description: name, damage, price
-shotgun,35,200
-
+weapon: shotgun,35,200
 # Money description: 
-250
-
-# Treasure description: code, point
-1,4
+money: 250
+# treasure description: code, point #
+treasure: 1, 4
