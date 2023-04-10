@@ -155,3 +155,30 @@ class Shop:
                     'durability': int(armour_data[0]),
                     'price': int(armour_data[1].rstrip())
                 })
+
+# Define the Player class
+class Player:
+    # Constructor for the Player class
+    def __init__(self, name):
+        # Set the player's name
+        self.name = name
+        
+        # Initialize the player's money with a random value between 50 and 350
+        self.money = random.randint(50, 350)
+        
+        # Set the player's initial health to 100
+        self.health = 100
+        
+        # Initialize the player's points to 0
+        self.points = 0
+        
+        # Initialize the player's inventory with empty lists for weapons, keys, armours, and unopened treasures
+        self.inventory = {
+            'weapons': [],
+            'keys': [],
+            'armours': [],
+            'unopened_treasures': []
+        }
+        
+        # Initialize the number of healing pads bought by the player to 0
+        self.healing_pads_bought = 0
