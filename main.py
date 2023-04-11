@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter.simpledialog import askstring
 import random
 
 # Define the Room class
