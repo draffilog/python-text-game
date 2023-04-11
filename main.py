@@ -182,3 +182,22 @@ class Player:
         
         # Initialize the number of healing pads bought by the player to 0
         self.healing_pads_bought = 0
+
+        
+# Main function of the game
+def main(): 
+    # Get the player's name as input
+    player_name = input("Enter your name: ")
+    
+    # Create a player object with the given name
+    player = Player(player_name)
+    
+    # Create room objects using the corresponding text files
+    room1 = Room("Room1.txt")
+    room2 = Room("Room2.txt")
+    room3 = Room("Room3.txt")
+    room4 = Room("Room4.txt")
+    
+    # Create a shop object using the Shop.txt file
+    shop = Shop("Shop.txt")
+    
