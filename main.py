@@ -201,4 +201,58 @@ def main():
     
     # Create a shop object using the Shop.txt file
     shop = Shop("Shop.txt")
+
+        # Function to check if the player has won or lost the game
+    def check_victory():
+        # If player's points are equal to or greater than 10, they win
+        if player.points >= 10:
+            messagebox.showinfo("Victory", "Congratulations! You've won the game with 10 or more points!")
+            root.destroy()  
+            return True  
+        # If player's points fall below 0, they lose
+        elif player.points < 0:
+            messagebox.showinfo("Defeat", "You've lost the game. Your points fell below 0.")
+            root.destroy()  
+            return True  
+        return False  
+
+    # Function to update the player's statistics displayed on the screen
+    def update_stats():
+        stats_label.config(text=f"Name: {player.name}\nMoney: {player.money}\nHealth: {player.health}\nPoints: {player.points}")
+        
+    # Function to choose a weapon from the player's inventory
+    def choose_weapon(weapons):
+        # Get a list of weapon names
+        weapon_names = [weapon['name'] for weapon in weapons]
+        weapon_choice = ""
+        
+        # Keep asking for input until a valid weapon name is provided
+        while weapon_choice not in weapon_names:
+            weapon_choice = tk.simpledialog.askstring("Choose a weapon", f"Your weapons: {', '.join(weapon_names)}")
+        
+        # Return the chosen weapon
+        return next(weapon for weapon in weapons if weapon['name'] == weapon_choice)
+
+    # Function to choose an armour from the player's inventory
+    def choose_armour(armours):
+        # Return None if no armours are available
+        if not armours:
+            return None
+
+        # Get a list of armour names
+        armour_names = [f"Armour {armour['durability']}" for armour in armours]
+        armour_names.append("None")
+        armour_choice = ""
+
+        # Keep asking for input until a valid armour name is provided
+        while armour_choice not in armour_names:
+            armour_choice = tk.simpledialog.askstring("Choose armour", f"Your armours: {', '.join(armour_names)}")
+
+        # Return None if the player chooses not to wear any armour
+        if armour_choice == "None":
+            return None
+        else:
+            # Return the chosen armour
+            chosen_armour = next(armour for armour in armours if f"Armour {armour['durability']}" == armour_choice)
+            return chosen_armour
     
