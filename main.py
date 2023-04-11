@@ -256,3 +256,49 @@ def main():
             chosen_armour = next(armour for armour in armours if f"Armour {armour['durability']}" == armour_choice)
             return chosen_armour
     
+    
+    # Function to handle a fight between the player and an enemy in a room
+    def fight(player, room, weapon, use_armour, armour_choice):
+        # Calculate the enemy's damage
+        enemy_damage = room.enemy['damage']
+        
+        # If the player is using armour, reduce enemy damage based on armour durability
+        if use_armour:
+            armor_durability = armour_choice['durability']
+            enemy_damage //= armor_durability
+
+        # Calculate player's damage using the chosen weapon
+        player_damage = weapon['damage']
+        
+        # Initialize enemy and player health
+        enemy_health = room.enemy['health']
+        player_health = player.health
+
+        # Continue the fight loop until either the player or the enemy has no health left
+        while player_health > 0 and enemy_health > 0:
+            # Reduce enemy health by the player's damage
+            enemy_health -= player_damage
+
+            # If the enemy is defeated
+            if enemy_health <= 0:
+                # Update player health and remove used weapon and armour from the inventory
+                player.health = max(0, player_health)
+                player.inventory['weapons'].remove(weapon) 
+                if use_armour:
+                    player.inventory['armours'].remove(armour_choice)
+                return {"won": True, "player_health": player_health, "enemy_damage": player_damage}
+
+            # Reduce player health by the enemy's damage
+            player_health -= enemy_damage
+
+            # If the player is defeated
+            if player_health <= 0:
+                # Update player health and remove used weapon and armour from the inventory
+                player.health = max(0, player_health)
+                player.inventory['weapons'].remove(weapon)
+                if use_armour:
+                    player.inventory['armours'].remove(armour_choice)
+                return {"won": False, "player_health": player_health, "enemy_damage": player_damage}
+
+        # Return a result dictionary with the fight outcome and updated player_health and enemy_damage values
+        return {"won": None, "player_health": player_health, "enemy_damage": player_damage}
