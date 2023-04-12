@@ -373,3 +373,18 @@ def main():
 
             # Update the player's stats
             update_stats()
+                # Function to sell an item and update the player's money and stats
+    
+    def sell_item(item_type, item):
+        # Remove the item from the player's inventory based on its type
+        if item_type == "weapon":
+            player.inventory["weapons"].remove(item)
+        elif item_type == "key":
+            player.inventory["keys"].remove(item)
+        elif item_type == "armour":
+            player.inventory["armours"].remove(item)
+
+        # Increase player's money and update stats
+        player.money += item["price"]
+        update_stats()
+        messagebox.showinfo("Sold", f"You sold {item['name']} for {item['price']} coins")
