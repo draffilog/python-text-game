@@ -2,6 +2,9 @@
 
 This is a simple text-based adventure game developed in Python using the `tkinter` library for the graphical user interface.
 
+## Prerequisites
+Before you can run the game, you need to have Python installed on your system. The game has been developed using Python 3.6+, so make sure you have a compatible version installed.
+
 ## Required Libraries
 
 The following libraries are required to run the game:
