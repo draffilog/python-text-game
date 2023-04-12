@@ -512,4 +512,18 @@ def main():
 
         # Create sell button in the shop window
         sell_button = tk.Button(shop_window, text="Sell Items", command=sell_items)
-        sell_button.pack(pady=10) 
+        sell_button.pack(pady=10)
+
+    # Function to show player's inventory
+    def show_inventory():
+        # Extract weapon names, key codes, armor durabilities, and unopened treasure codes
+        weapon_names = [weapon['name'] for weapon in player.inventory['weapons']]
+        key_codes = [key['code'] for key in player.inventory['keys']]
+        armor_durabilities = [armor['durability'] for armor in player.inventory['armours']]
+        unopened_treasures_codes = [treasure['code'] for treasure in player.inventory['unopened_treasures']]
+
+        # Create a formatted inventory string
+        inventory_str = f"Weapons: {', '.join(weapon_names)}\nKeys: {', '.join(map(str, key_codes))}\nArmours: {', '.join(map(str, armor_durabilities))}\nUnopened Treasures: {', '.join(map(str, unopened_treasures_codes))}"
+        
+        # Display inventory in a message box
+        messagebox.showinfo("Inventory", inventory_str) 
