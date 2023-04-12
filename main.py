@@ -388,3 +388,30 @@ def main():
         player.money += item["price"]
         update_stats()
         messagebox.showinfo("Sold", f"You sold {item['name']} for {item['price']} coins")
+
+            # Function to handle the player's interaction with the shop
+    def enter_shop():
+        # Create a new window for the shop
+        shop_window = tk.Toplevel(root)
+        shop_window.title("Shop")
+
+        # Display shop information
+        tk.Label(shop_window, text="Shop", font=("Arial", 24)).pack(pady=10)
+        tk.Label(shop_window, text=shop.description).pack(pady=10)
+
+        # Function to buy a weapon
+        def buy_weapon(weapon):
+            # Check if player has enough money and update their inventory and stats
+            if player.money >= weapon['price']:
+                player.money -= weapon['price']
+                player.inventory['weapons'].append(weapon)
+                update_stats()
+                messagebox.showinfo("Purchased", f"You bought {weapon['name']} for {weapon['price']} coins")
+            else:
+                messagebox.showinfo("Not enough money", "You don't have enough money to buy this weapon")
+
+        # Create buttons for each weapon in the shop
+        for weapon in shop.weapons:
+            weapon_button = tk.Button(shop_window, text=f"{weapon['name']} ({weapon['damage']} dmg) - {weapon['price']} coins",
+                                    command=lambda w=weapon: buy_weapon(w))
+            weapon_button.pack(pady=2)
