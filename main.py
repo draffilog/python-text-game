@@ -416,7 +416,8 @@ def main():
                                     command=lambda w=weapon: buy_weapon(w))
             weapon_button.pack(pady=2)
 
-                # Function to buy a key
+        
+        # Function to buy a key
         def buy_key(key):
             # Check if player has enough money and update their inventory and stats
             if player.money >= key['price']:
@@ -432,3 +433,23 @@ def main():
             key_button = tk.Button(shop_window, text=f"Key {key['code']} - {key['price']} coins",
                                     command=lambda k=key: buy_key(k))
             key_button.pack(pady=2)
+
+        # Function to buy a healing pad
+        def buy_healing_pad():
+            # Check if player has reached the healing pad limit
+            if player.healing_pads_bought >= 5:
+                messagebox.showinfo("Limit reached", "You can only buy 5 healing pads.")
+                return
+            # Check if player has enough money, update their health, and increment healing pads bought
+            if player.money >= shop.healing_pad['price']:
+                player.money -= shop.healing_pad['price']
+                player.health += shop.healing_pad['health']
+                player.healing_pads_bought += 1  
+                update_stats()
+                messagebox.showinfo("Purchased", f"You bought a healing pad for {shop.healing_pad['price']} coins")
+            else:
+                messagebox.showinfo("Not enough money", "You don't have enough money to buy a healing pad")
+
+        # Create healing pad button
+        healing_pad_button = tk.Button(shop_window, text=f"Healing Pad (+50 HP) - {shop.healing_pad['price']} coins", command=buy_healing_pad)
+        healing_pad_button.pack(pady=2) 
