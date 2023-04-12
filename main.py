@@ -555,3 +555,44 @@ def main():
         # Update stats if the game has not ended
         if not game_ended:
             update_stats()
+
+
+    # Initialize the main tkinter window
+    root = tk.Tk()
+    root.title("Text-based Adventure Game")
+
+    # Create a label to display player's stats
+    stats_label = tk.Label(root, text="", justify=tk.LEFT)
+    stats_label.pack(pady=10)
+    update_stats()
+
+    # Create buttons for entering different rooms
+    room1_button = tk.Button(root, text="Room 1", command=lambda: enter_room(room1))
+    room1_button.pack(pady=2)
+
+    room2_button = tk.Button(root, text="Room 2", command=lambda: enter_room(room2))
+    room2_button.pack(pady=2)
+
+    room3_button = tk.Button(root, text="Room 3", command=lambda: enter_room(room3))
+    room3_button.pack(pady=2)
+
+    room4_button = tk.Button(root, text="Room 4", command=lambda: enter_room(room4))
+    room4_button.pack(pady=2)
+
+    # Create a button to enter the shop
+    shop_button = tk.Button(root, text="Shop", command=enter_shop)
+    shop_button.pack(pady=10)
+
+    # Create a button to show player's inventory
+    inventory_button = tk.Button(root, text="Inventory", command=show_inventory)
+    inventory_button.pack(pady=2)
+
+    # Create a button to open treasures
+    open_treasures_button = tk.Button(root, text="Open Treasures", command=open_treasures)
+    open_treasures_button.pack(pady=2)
+
+    # Start the main tkinter event loop
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
