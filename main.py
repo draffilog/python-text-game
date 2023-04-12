@@ -559,6 +559,7 @@ def main():
 
     # Initialize the main tkinter window
     root = tk.Tk()
+    root.geometry("400x400")
     root.title("Text-based Adventure Game")
 
     # Create a label to display player's stats
