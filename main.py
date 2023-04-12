@@ -452,4 +452,21 @@ def main():
 
         # Create healing pad button
         healing_pad_button = tk.Button(shop_window, text=f"Healing Pad (+50 HP) - {shop.healing_pad['price']} coins", command=buy_healing_pad)
-        healing_pad_button.pack(pady=2) 
+        healing_pad_button.pack(pady=2)
+
+        # Function to buy armor
+        def buy_armor(armor):
+            # Check if player has enough money, update their inventory, and update stats
+            if player.money >= armor['price']:
+                player.money -= armor['price']
+                player.inventory['armours'].append(armor)
+                update_stats()
+                messagebox.showinfo("Purchased", f"You bought Armor {armor['durability']} for {armor['price']} coins")
+            else:
+                messagebox.showinfo("Not enough money", "You don't have enough money to buy this armor")
+
+        # Create armor buttons
+        for armor in shop.armours:
+            armor_button = tk.Button(shop_window, text=f"Armor {armor['durability']} - {armor['price']} coins",
+                                    command=lambda a=armor: buy_armor(a))
+            armor_button.pack(pady=2) 
