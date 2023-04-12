@@ -415,3 +415,20 @@ def main():
             weapon_button = tk.Button(shop_window, text=f"{weapon['name']} ({weapon['damage']} dmg) - {weapon['price']} coins",
                                     command=lambda w=weapon: buy_weapon(w))
             weapon_button.pack(pady=2)
+
+                # Function to buy a key
+        def buy_key(key):
+            # Check if player has enough money and update their inventory and stats
+            if player.money >= key['price']:
+                player.money -= key['price']
+                player.inventory['keys'].append(key)
+                update_stats()
+                messagebox.showinfo("Purchased", f"You bought Key {key['code']} for {key['price']} coins")
+            else:
+                messagebox.showinfo("Not enough money", "You don't have enough money to buy this key")
+
+        # Create buttons for each key in the shop
+        for key in shop.keys:
+            key_button = tk.Button(shop_window, text=f"Key {key['code']} - {key['price']} coins",
+                                    command=lambda k=key: buy_key(k))
+            key_button.pack(pady=2)
