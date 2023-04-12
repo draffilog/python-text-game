@@ -373,8 +373,8 @@ def main():
 
             # Update the player's stats
             update_stats()
-                # Function to sell an item and update the player's money and stats
-    
+                
+    # Function to sell an item and update the player's money and stats
     def sell_item(item_type, item):
         # Remove the item from the player's inventory based on its type
         if item_type == "weapon":
