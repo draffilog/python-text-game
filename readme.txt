@@ -14,3 +14,5 @@ How to Play
 Initially you need to write a name of your player into a terminal, when the game starts, you will see buttons for different rooms and options such as Inventory and Shop. Click on the buttons to interact with the game, fight enemies, collect items, and manage your inventory.
 
 Enjoy the game!
+
+Link to my github repository: https://github.com/draffilog/python-text-game
