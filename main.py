@@ -469,4 +469,47 @@ def main():
         for armor in shop.armours:
             armor_button = tk.Button(shop_window, text=f"Armor {armor['durability']} - {armor['price']} coins",
                                     command=lambda a=armor: buy_armor(a))
-            armor_button.pack(pady=2) 
+            armor_button.pack(pady=2)
+
+        # Function to sell items in the player's inventory
+        def sell_items():
+            # Create a new window for selling items
+            sell_window = tk.Toplevel(root)
+            sell_window.title("Sell Items")
+
+            # Function to sell weapon
+            def sell_weapon(weapon):
+                sell_item("weapon", weapon)
+
+            # Create weapon buttons for selling
+            for weapon in player.inventory["weapons"]:
+                weapon_button = tk.Button(sell_window, text=f"{weapon['name']} ({weapon['damage']} dmg) - {weapon['price']} coins",
+                                        command=lambda w=weapon: sell_weapon(w))
+                weapon_button.pack(pady=2)
+
+            # Function to sell key
+            def sell_key(key):
+                sell_item("key", key)
+
+            # Create key buttons for selling
+            for key in player.inventory["keys"]:
+                key_button = tk.Button(sell_window, text=f"Key {key['code']} - {key['price']} coins",
+                                    command=lambda k=key: sell_key(k))
+                key_button.pack(pady=2)
+
+            # Function to sell armor
+            def sell_armor(armor):
+                sell_item("armour", armor)
+
+            # Create armor buttons for selling
+            for armor in player.inventory["armours"]:
+                armor_button = tk.Button(sell_window, text=f"Armor {armor['durability']} - {armor['price']} coins",
+                                        command=lambda a=armor: sell_armor(a))
+                armor_button.pack(pady=2)
+
+            # Run the sell window main loop
+            sell_window.mainloop()
+
+        # Create sell button in the shop window
+        sell_button = tk.Button(shop_window, text="Sell Items", command=sell_items)
+        sell_button.pack(pady=10) 
