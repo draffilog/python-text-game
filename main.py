@@ -526,4 +526,32 @@ def main():
         inventory_str = f"Weapons: {', '.join(weapon_names)}\nKeys: {', '.join(map(str, key_codes))}\nArmours: {', '.join(map(str, armor_durabilities))}\nUnopened Treasures: {', '.join(map(str, unopened_treasures_codes))}"
         
         # Display inventory in a message box
-        messagebox.showinfo("Inventory", inventory_str) 
+        messagebox.showinfo("Inventory", inventory_str)
+        
+    # Function to open treasures using keys
+    def open_treasures():
+        opened_treasures = []
+        game_ended = False
+        
+        # Iterate through unopened treasures and keys
+        for treasure in player.inventory['unopened_treasures']:
+            for key in player.inventory['keys']:
+                # If treasure code matches key code, open the treasure
+                if treasure['code'] == key['code']:
+                    player.points += treasure['points']
+                    opened_treasures.append(treasure)
+                    player.inventory['keys'].remove(key)
+                    
+                    # Check for game victory
+                    game_ended = check_victory()
+                    break
+            if game_ended:
+                break
+        
+        # Remove opened treasures from the unopened treasures list
+        for treasure in opened_treasures:
+            player.inventory['unopened_treasures'].remove(treasure)
+        
+        # Update stats if the game has not ended
+        if not game_ended:
+            update_stats()
