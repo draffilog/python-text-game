@@ -302,3 +302,74 @@ def main():
 
         # Return a result dictionary with the fight outcome and updated player_health and enemy_damage values
         return {"won": None, "player_health": player_health, "enemy_damage": player_damage}
+
+    # Function for handling the player's entry into a room
+    def enter_room(room):
+        # Check if the player has already won in this room
+        if room.visited and room.times_won > 0:
+            messagebox.showinfo("Already won", "You have already won in this room.")
+            return
+
+        # Mark the room as visited and display the room's description
+        room.visited = True
+        messagebox.showinfo(room.name, room.description)
+
+        # Show enemy information
+        enemy_info = f"{room.enemy['name']} (Damage: {room.enemy['damage']}, Health: {room.enemy['health']})"
+        messagebox.showinfo("Enemy", f"Enemy in this room: {enemy_info}")
+
+        # Let the player choose a weapon and armour for the fight
+        weapon_choice = choose_weapon(player.inventory['weapons'])
+        armour_choice = choose_armour(player.inventory['armours'])
+        use_armour = armour_choice is not None
+
+        # Perform the fight with the chosen weapon and armour
+        fight_result = fight(player, room, weapon_choice, use_armour, armour_choice)
+
+        # Update the player's health after the fight
+        player.health = max(0, fight_result['player_health'])
+
+        # If the player won the fight
+        if fight_result['won']:
+            # Display victory message and update points, money, and inventory
+            messagebox.showinfo("Victory", "You have defeated the enemy!")
+            player.points += room.points
+            game_ended = check_victory()
+            if game_ended:
+                return
+
+            player.money += room.money
+            player.inventory['weapons'].append(room.weapon)
+            if room.treasure is not None:
+                player.inventory['unopened_treasures'].append(room.treasure)
+            if room.keys is not None:
+                player.inventory['keys'].append(room.keys)
+
+            # Use the healing pad if available
+            if room.healing_pad:
+                healing_size = 50
+                player.health += healing_size
+                messagebox.showinfo("Healing Pad", f"You found a healing pad in the room! Your health has been increased by {healing_size}.")
+            
+            # Update the player's stats
+            update_stats()
+
+            # Increment the times_won attribute and set the enemy's health to 0
+            room.times_won += 1
+            room.enemy['health'] = 0
+
+        # If the player lost the fight
+        else:
+            # Display defeat message and update points and health
+            messagebox.showinfo("Defeat", "You have been defeated!")
+            player.health = 0
+            player.points -= 2
+            game_ended = check_victory()
+            if game_ended:
+                return
+
+            # Update the enemy's health after losing
+            room.enemy['health'] = max(0, room.enemy['health'] - fight_result['enemy_damage'])
+
+            # Update the player's stats
+            update_stats()
